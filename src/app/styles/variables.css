@@ -1,0 +1,68 @@
+:root {
+  --bg-dark: oklch(12% 0.01 160deg);
+  --bg: oklch(17% 0.01 160deg);
+  --bg-light: oklch(22% 0.01 160deg);
+  --text: oklch(98% 0.005 160deg);
+  --text-muted: oklch(75% 0.01 160deg);
+  --text-accent: oklch(85% 0.14 160deg);
+  --border-color: oklch(30% 0.02 160deg);
+  --border-muted: oklch(22% 0.02 160deg);
+  --primary: oklch(72% 0.15 160deg);
+  --primary-hover: oklch(78% 0.18 160deg);
+  --secondary: oklch(65% 0.04 160deg);
+  --danger: oklch(65% 0.15 25deg);
+  --warning: oklch(75% 0.12 70deg);
+  --success: var(--primary);
+  --info: oklch(70% 0.1 240deg);
+  --highlight: oklch(35% 0.08 160deg);
+
+  body.light {
+    --bg-dark: oklch(93% 0.01 160deg);
+    --bg: oklch(97% 0.005 160deg);
+    --bg-light: oklch(100% 0 0deg);
+    --text: oklch(20% 0.02 160deg);
+    --text-muted: oklch(45% 0.02 160deg);
+    --text-accent: oklch(45% 0.14 160deg);
+    --border-color: oklch(85% 0.03 160deg);
+    --border-muted: oklch(92% 0.02 160deg);
+    --primary: oklch(55% 0.16 160deg);
+    --primary-hover: oklch(48% 0.15 160deg);
+    --secondary: oklch(50% 0.05 160deg);
+    --danger: oklch(55% 0.18 25deg);
+    --warning: oklch(65% 0.15 70deg);
+    --success: var(--primary);
+    --info: oklch(55% 0.14 240deg);
+    --highlight: oklch(90% 0.08 160deg);
+  }
+
+  /* shadows */
+  --shadow-s: inset 0 1px 2px #ffffff30, /* top highlight */ 0 1px 2px #00000030,
+    /* dark shadow */ 0 2px 4px #00000015; /* soft shadow */
+  --shadow-m: inset 0 1px 2px #ffffff50, /* top highlight */ 0 2px 4px #00000030,
+    /* dark shadow */ 0 4px 8px #00000015; /* soft shadow */
+  --shadow-l: inset 0 1px 2px #ffffff70, /* top highlight */ 0 4px 6px #00000030,
+    /* dark shadow */ 0 6px 10px #00000015; /* soft shadow */
+
+  --border: var(--border-width-m) solid var(--border-color);
+
+  --border-width-xl: 6px;
+  --border-width-l: 4px;
+  --border-width-m: 3px;
+  --border-width-xm: 2px;
+  --border-width-s: 1px;
+
+  --border-radius-l: 12px;
+  --border-radius-m: 10px;
+  --border-radius: 8px;
+  --border-radius-xs: 6px;
+  --border-radius-xxs: 5px;
+  --border-radius-xxxs: 4px;
+
+  --input-height: 44px;
+
+  --font-family-base: "Onest", sans-serif;
+
+  --container-padding-x: 16px;
+
+  --transition-duration: 0.2s;
+}
