@@ -1,0 +1,23 @@
+.navList {
+  display: flex;
+  gap: 10px;
+
+  &__Element {
+    > a {
+      padding: 6px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: var(--border-radius);
+
+      &:global(.active) {
+        color: var(--text-accent);
+        pointer-events: none;
+      }
+
+      &:hover {
+        background-color: var(--primary);
+        transition-duration: var(--transition-duration);
+      }
+    }
+  }
+}
