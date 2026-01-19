@@ -1,12 +1,12 @@
 import Header from '@/components/Header'
 
-const MainPage = () => {
+const GamesPage = () => {
   return (
     <>
       <Header />
-      Hello, main page!
+      Hello, games page!
     </>
   )
 }
 
-export default MainPage
+export default GamesPage

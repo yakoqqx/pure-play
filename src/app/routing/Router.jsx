@@ -1,14 +1,12 @@
-import { Route, Routes } from 'react-router'
-import MainPage from '@/pages/MainPage'
-import StatPage from '@/pages/StatPage'
-import NotFoundPage from '@/pages/NotFoundPage'
+import { Route, Routes } from 'react-router';
+import { routes } from '@/app/routing/routesConfig';
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/statistics" element={<StatPage />} />
-      <Route path="*" element={<NotFoundPage />} />
+      {routes.map(({ path, element }) => (
+        <Route key={path} path={path} element={element} />
+      ))}
     </Routes>
   )
 }
