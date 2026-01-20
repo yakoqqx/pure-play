@@ -1,19 +1,18 @@
-import { routes } from '@/app/routing/routesConfig'
 import { Link } from 'react-router'
 import styles from './Logo.module.scss'
 
 const Logo = () => {
   return (
     <Link
-      to={routes.HOME}
+      to={'/'}
       className={styles.logo}
     >
       <img
         alt="logo"
-        src="/vite.svg"
+        src="/PurePlay.svg"
         loading="lazy"
       />
-      <span>Pure Play</span>
+      <span className={styles.shinyText}>Pure Play</span>
     </Link>
   )
 }

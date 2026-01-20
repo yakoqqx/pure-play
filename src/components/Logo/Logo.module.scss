@@ -14,10 +14,35 @@
     width: 48px;
     height: 48px;
   }
+}
 
-  > span {
-    color: var(--text);
-    font-size: 32px;
-    font-weight: 700;
+.shinyText {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(
+      110deg,
+      var(--grey) 35%,
+      oklch(100% 0 0deg) 50%,
+      var(--grey) 65%
+  );
+  background-position-x: 100%;
+  background-size: 200% 100%;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes shine {
+  from {
+    background-position-x: 150%;
+  }
+
+  to {
+    background-position-x: -50%;
   }
 }
