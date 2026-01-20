@@ -1,5 +1,6 @@
 import Logo from '@/components/Logo'
 import NavList from '@/components/NavList'
+import ThemeButton from '@/components/ThemeButton'
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -8,7 +9,7 @@ const Header = () => {
       <Logo />
       <div className={styles.actions}>
         <NavList />
-        <button>Switch Theme</button>
+        <ThemeButton />
       </div>
     </header>
   )
