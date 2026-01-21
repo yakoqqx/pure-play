@@ -1,9 +1,15 @@
-.navList {
-  display: flex;
-  gap: 10px;
+@use '@/app/styles/helpers' as *;
 
-  &__Element {
-    > a {
+.nav {
+  .closeButton {
+    display: none;
+  }
+
+  .navList {
+    display: flex;
+    gap: 10px;
+
+    a {
       padding: 6px;
       text-decoration: none;
       color: var(--text);
@@ -18,6 +24,49 @@
         background-color: var(--primary);
         transition-duration: var(--transition-duration);
       }
+    }
+  }
+
+  @include mobile-s {
+    .menuContainer {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-light);
+      transition: transform 0.3s ease;
+      transform: translateX(100%);
+    }
+
+    &.isOpen {
+      .menuContainer {
+        transform: translateX(0);
+      }
+    }
+
+    .navList {
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      @include fluid-text(22, 18);
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      display: block;
+      padding: 2px;
+      font-size: 24px;
+      color: var(--text);
+      background: none;
+      border: none;
+
+      @include square(36px);
     }
   }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {memo, useEffect, useState} from 'react'
 import styles from './ThemeButton.module.scss'
 
 const ThemeButton = () => {
@@ -31,4 +31,4 @@ const ThemeButton = () => {
   )
 }
 
-export default ThemeButton
+export default memo(ThemeButton)

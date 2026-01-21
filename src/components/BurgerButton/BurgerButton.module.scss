@@ -1,0 +1,23 @@
+@use '@/app/styles/helpers' as *;
+
+.burger {
+  display: none;
+
+  @include mobile-s {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include square(32px);
+
+    padding: 2px;
+    background: transparent;
+    border: none;
+
+    span {
+      width: 100%;
+      height: 3px;
+      background-color: var(--text);
+    }
+  }
+}

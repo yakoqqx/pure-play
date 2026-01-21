@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import {memo} from 'react'
 import styles from './Logo.module.scss'
 
 const Logo = () => {
@@ -17,4 +18,4 @@ const Logo = () => {
   )
 }
 
-export default Logo
+export default memo(Logo)

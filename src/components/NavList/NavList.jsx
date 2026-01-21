@@ -1,26 +1,42 @@
 import {routes} from '@/app/routing/routesConfig'
 import {NavLink} from 'react-router'
+import {memo} from 'react'
 import styles from './NavList.module.scss'
 
-const NavList = () => {
+const NavList = (props) => {
+  const {
+    isOpen,
+    onClose,
+  } = props
+
   return (
-    <nav>
-      <ul className={styles.navList}>
-        {routes
-          .filter(route => route.path !== '*')
-          .map(({path, name}) => (
-            <li
-              key={path}
-              className={styles.navList__Element}
-            >
-              <NavLink to={path}>
-                {name}
-              </NavLink>
-            </li>
-          ))}
-      </ul>
+    <nav className={`${styles.nav} ${isOpen ? styles.isOpen : ''}`}>
+      <div className={styles.menuContainer}>
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        <ul className={styles.navList}>
+          {routes
+            .filter(route => route.path !== '*')
+            .map(({path, name}) => (
+              <li key={path}>
+                <NavLink
+                  to={path}
+                  onClick={onClose}
+                >
+                  {name}
+                </NavLink>
+              </li>
+            ))}
+        </ul>
+      </div>
     </nav>
   )
 }
 
-export default NavList
+export default memo(NavList)
