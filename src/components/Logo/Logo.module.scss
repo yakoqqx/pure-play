@@ -1,3 +1,5 @@
+@use '@/app/styles/helpers' as *;
+
 .logo {
   display: flex;
   place-items: center;
@@ -11,15 +13,12 @@
   }
 
   > img {
-    width: 48px;
-    height: 48px;
+    @include square(48px);
   }
 }
 
 .shinyText {
   display: inline-block;
-  font-size: 32px;
-  font-weight: 700;
   background: linear-gradient(
       110deg,
       var(--grey) 35%,

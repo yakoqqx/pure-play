@@ -12,7 +12,7 @@ const Logo = () => {
         src="/PurePlay.svg"
         loading="lazy"
       />
-      <span className={styles.shinyText}>Pure Play</span>
+      <span className={`${styles.shinyText} h3`}>Pure Play</span>
     </Link>
   )
 }

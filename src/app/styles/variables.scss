@@ -1,3 +1,5 @@
+@use 'helpers' as *;
+
 :root {
   --bg-dark: oklch(12% 0.01 160deg);
   --bg: oklch(17% 0.01 160deg);
@@ -15,7 +17,7 @@
   --success: var(--primary);
   --info: oklch(70% 0.1 240deg);
   --highlight: oklch(35% 0.08 160deg);
-  --grey: oklch(33.02% 0.01 255);
+  --grey: oklch(33.02% 0.01 255deg);
 
   --theme-icon: url("/moon.svg");
 
@@ -67,7 +69,12 @@
 
   --font-family-base: "Onest", sans-serif;
 
-  --container-padding-x: 16px;
+  --container-width: #{fluid-to-laptop(
+      $container-desktop-width,
+      $container-laptop-width
+    )};
+
+  --container-padding-x: 36px;
 
   --transition-duration: 0.2s;
 }
