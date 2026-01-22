@@ -1,10 +1,13 @@
 import Header from '@/components/Header'
+import PageInfo from '@/components/PageInfo'
 
 const StatPage = () => {
   return (
     <div>
       <Header />
-      Hello, statistics!
+      <main>
+        <PageInfo />
+      </main>
     </div>
   )
 }

@@ -1,10 +1,13 @@
 import Header from '@/components/Header'
+import PageInfo from '@/components/PageInfo'
 
 const MainPage = () => {
   return (
     <>
       <Header />
-      Hello, main page!
+      <main>
+        <PageInfo />
+      </main>
     </>
   )
 }

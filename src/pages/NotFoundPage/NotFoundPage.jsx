@@ -1,8 +1,14 @@
+import PageInfo from '@/components/PageInfo'
+import Header from '@/components/Header'
+
 const NotFoundPage = () => {
   return (
-    <div>
-      Hello, this page doesn't exist!
-    </div>
+    <>
+      <Header />
+      <main>
+        <PageInfo />
+      </main>
+    </>
   )
 }
 
