@@ -1,21 +1,47 @@
+@use '@/app/styles/helpers' as *;
+
 .content {
   padding: 25px 40px 40px;
   background-color: var(--bg-light);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-l);
+
+  @include tablet {
+    padding: 20px 25px 25px;
+  }
+
+  @include mobile-s {
+    padding: 15px 20px 20px;
+  }
 }
 
 .title {
   margin-bottom: 15px;
   color: var(--text-accent);
+
+  @include tablet {
+    margin-bottom: 8px;
+  }
+
+  @include mobile-s {
+    margin-bottom: 4px;
+  }
 }
 
 .mainDescription {
   margin-bottom: 20px;
+
+  @include tablet {
+    margin-bottom: 10px;
+  }
 }
 
 .section {
   margin-bottom: 20px;
+
+  @include tablet {
+    margin-bottom: 10px;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -23,10 +49,18 @@
 
   .subtitle {
     margin-bottom: 10px;
+
+    @include tablet {
+      margin-bottom: 5px;
+    }
   }
 
   .list {
     padding-left: 15px;
+
+    @include tablet {
+      padding-left: 20px;
+    }
 
     .listItem {
       margin-bottom: 10px;

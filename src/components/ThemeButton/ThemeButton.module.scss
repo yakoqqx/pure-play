@@ -22,7 +22,7 @@
     animation: rotateForward calc(var(--transition-duration) * 2.5) ease-in-out;
   }
 
-  &:hover {
+  @include hover() {
     opacity: 0.5;
     transition-duration: var(--transition-duration);
   }

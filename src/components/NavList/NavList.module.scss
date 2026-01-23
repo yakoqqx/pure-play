@@ -20,7 +20,7 @@
         pointer-events: none;
       }
 
-      &:hover {
+      @include hover() {
         background-color: var(--primary);
         transition-duration: var(--transition-duration);
       }
