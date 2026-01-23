@@ -22,10 +22,11 @@ const NavList = (props) => {
 
         <ul className={styles.navList}>
           {routes
-            .filter(route => route.path !== '*')
+            .filter(route => !route.hidden)
             .map(({path, name}) => (
               <li key={path}>
                 <NavLink
+                  className={`link`}
                   to={path}
                   onClick={onClose}
                 >

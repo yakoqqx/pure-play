@@ -8,23 +8,6 @@
   .navList {
     display: flex;
     gap: 10px;
-
-    a {
-      padding: 6px;
-      text-decoration: none;
-      color: var(--text);
-      border-radius: var(--border-radius);
-
-      &:global(.active) {
-        color: var(--text-accent);
-        pointer-events: none;
-      }
-
-      @include hover() {
-        background-color: var(--primary);
-        transition-duration: var(--transition-duration);
-      }
-    }
   }
 
   @include mobile-s {

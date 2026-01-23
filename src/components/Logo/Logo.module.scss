@@ -7,7 +7,7 @@
   padding: 6px;
   text-decoration: none;
 
-  @include hover() {
+  @include hover {
     opacity: 0.5;
     transition-duration: var(--transition-duration);
   }
@@ -35,7 +35,7 @@
   animation: shine 3s linear infinite;
   -webkit-text-fill-color: transparent;
 
-  @include hover() {
+  @include hover {
     animation-play-state: paused;
   }
 }

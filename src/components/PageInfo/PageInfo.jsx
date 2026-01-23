@@ -1,5 +1,5 @@
 import {useLocation} from 'react-router'
-import {PAGES_INFO} from '@/constants/PageInfo'
+import {PAGES_INFO} from '@/constants/pageInfo'
 import styles from './PageInfo.module.scss'
 
 const PageInfo = () => {
@@ -9,7 +9,7 @@ const PageInfo = () => {
   if (!content) return null
 
   return (
-    <section className={styles.content}>
+    <section className={`content`}>
       <h1 className={`${styles.title} h2`}>{content.title}</h1>
       <p className={styles.mainDescription}>{content.description}</p>
 
