@@ -82,4 +82,6 @@
   --container-padding-x: 36px;
 
   --transition-duration: 0.2s;
+
+  --card-width: clamp(250px, 20vw, 300px);
 }
