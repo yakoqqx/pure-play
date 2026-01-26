@@ -37,7 +37,6 @@
 
   &.active {
     color: var(--text-accent);
-    pointer-events: none;
   }
 
   @include hover {

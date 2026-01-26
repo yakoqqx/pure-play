@@ -2,6 +2,7 @@ import {useParams} from 'react-router'
 import {GAMES_DATA} from '@/constants/gamesData'
 import NotFoundPage from '@/pages/NotFoundPage'
 import Header from '@/components/Header'
+import PageInfo from '@/components/PageInfo'
 
 const GamePage = () => {
   const {gameId} = useParams()
@@ -14,7 +15,7 @@ const GamePage = () => {
     <>
       <Header />
       <main>
-        <h1>{game.title}</h1>
+        <PageInfo GAME_INFO={game} />
       </main>
     </>
 
