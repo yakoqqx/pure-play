@@ -22,6 +22,59 @@ export const GAMES_DATA = [
         text: 'Вы можете играть с другом на одном устройстве или бросить вызов ИИ. Для компьютера доступно два уровня сложности: Нормальный и Тяжелый (на базе алгоритма Минимакс). Выбор символа "O" дает вам право первого хода.',
       },
     ],
+    defaultSettings: {
+      mode: 'pve',
+      difficulty: 'medium',
+      side: 'O',
+    },
+    settingsSchema: [
+      {
+        id: 'mode',
+        label: 'Режим игры',
+        type: 'radio',
+        options: [
+          {
+            value: 'pve',
+            label: 'Против бота',
+          },
+          {
+            value: 'pvp',
+            label: 'Против друга',
+          },
+        ],
+      },
+      {
+        id: 'difficulty',
+        label: 'Сложность бота',
+        type: 'radio',
+        showIf: (currentSettings) => currentSettings.mode === 'pve',
+        options: [
+          {
+            value: 'medium',
+            label: 'Средняя',
+          },
+          {
+            value: 'hard',
+            label: 'Сложная',
+          },
+        ],
+      },
+      {
+        id: 'side',
+        label: 'Играть за',
+        type: 'radio',
+        options: [
+          {
+            value: 'X',
+            label: 'Крестик',
+          },
+          {
+            value: 'O',
+            label: 'Нолик',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'snake',

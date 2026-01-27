@@ -3,6 +3,8 @@ import {GAMES_DATA} from '@/constants/gamesData'
 import NotFoundPage from '@/pages/NotFoundPage'
 import Header from '@/components/Header'
 import PageInfo from '@/components/PageInfo'
+import GameSettings from '@/components/GameSettings'
+import {useState} from 'react'
 
 const GamePage = () => {
   const {gameId} = useParams()
@@ -11,11 +13,31 @@ const GamePage = () => {
     return <NotFoundPage />
   }
 
+  const [currentSettings, setCurrentSettings] = useState(() => {
+    const saved = localStorage.getItem(`${gameId}_settings`)
+    if (saved) return JSON.parse(saved)
+
+    return game.defaultSettings
+  })
+
+  const handleSettingsChange = (newSettings) => {
+    setCurrentSettings(newSettings)
+
+    localStorage.setItem(`${gameId}_settings`, JSON.stringify(newSettings))
+  }
+
   return (
     <>
       <Header />
       <main>
         <PageInfo GAME_INFO={game} />
+        <section className="content">
+          <GameSettings
+            schema={game.settingsSchema}
+            currentSettings={currentSettings}
+            onSettingsChange={handleSettingsChange}
+          />
+        </section>
       </main>
     </>
 
