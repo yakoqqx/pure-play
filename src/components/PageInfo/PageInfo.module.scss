@@ -1,18 +1,5 @@
 @use '@/app/styles/helpers' as *;
 
-.title {
-  margin-bottom: 15px;
-  color: var(--text-accent);
-
-  @include tablet {
-    margin-bottom: 8px;
-  }
-
-  @include mobile-s {
-    margin-bottom: 4px;
-  }
-}
-
 .mainDescription {
   margin-bottom: 20px;
 

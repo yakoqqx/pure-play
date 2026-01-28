@@ -12,7 +12,7 @@ const PageInfo = (props) => {
 
   return (
     <section className={`content`}>
-      <h1 className={`${styles.title} h2`}>{content.title}</h1>
+      <h1 className={`titleAccent h2`}>{content.title}</h1>
       {content.description &&
         <p className={styles.mainDescription}>{content.description}</p>}
 
