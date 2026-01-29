@@ -11,7 +11,7 @@ const PageInfo = (props) => {
   if (!content) return null
 
   return (
-    <section className={`content`}>
+    <>
       <h1 className={`titleAccent h2`}>{content.title}</h1>
       {content.description &&
         <p className={styles.mainDescription}>{content.description}</p>}
@@ -37,7 +37,7 @@ const PageInfo = (props) => {
           )}
         </div>
       ))}
-    </section>
+    </>
   )
 }
 
