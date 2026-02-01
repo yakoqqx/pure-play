@@ -6,6 +6,7 @@ import PageInfo from '@/components/PageInfo'
 import GameSettings from '@/components/GameSettings'
 import {useState} from 'react'
 import FadeIn from '@/components/shared/FadeIn'
+import GameBoard from '@/components/GameBoard'
 
 const GamePage = () => {
   const {gameId} = useParams()
@@ -37,15 +38,28 @@ const GamePage = () => {
         >
           <PageInfo GAME_INFO={game} />
         </FadeIn>
+
+        {game.settingsSchema && (
+          <FadeIn
+            className="content"
+            as="section"
+            delay={0.2}
+          >
+            <GameSettings
+              schema={game.settingsSchema}
+              currentSettings={currentSettings}
+              onSettingsChange={handleSettingsChange}
+            />
+          </FadeIn>
+        )}
+
         <FadeIn
           className="content"
           as="section"
-          delay={0.2}
+          delay={0.4}
         >
-          <GameSettings
-            schema={game.settingsSchema}
+          <GameBoard
             currentSettings={currentSettings}
-            onSettingsChange={handleSettingsChange}
           />
         </FadeIn>
       </main>
