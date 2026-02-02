@@ -60,6 +60,7 @@ const GamePage = () => {
         >
           <GameBoard
             currentSettings={currentSettings}
+            gameId={gameId}
           />
         </FadeIn>
       </main>
