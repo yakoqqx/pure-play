@@ -1,11 +1,13 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {WIN_LINES} from '@/components/GameEngines/TicTacToe/constants/winLines'
+import {motion} from 'motion/react'
 import styles from './TicTacToe.module.scss'
 
 const TicTacToe = (props) => {
   const {
     currentSettings,
     isGameStart,
+    onGameOver,
   } = props
 
   const [board, setBoard] = useState(Array(9).fill(null))
@@ -16,13 +18,16 @@ const TicTacToe = (props) => {
     for (let i = 0; i < WIN_LINES.length; i++) {
       const [a, b, c] = WIN_LINES[i]
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a]
+        return {symbol: board[a], line: [a, b, c]}
       }
     }
+    return null
   }
 
-  const winner = checkWinner(board)
+  const winData = checkWinner(board)
+  const winner = winData?.symbol
   const isDraw = !winner && board.every(square => square !== null)
+  const winningLine = winData?.line || []
 
   const handleClick = (index) => {
     if (!isGameStart || board[index] || winner) return
@@ -34,23 +39,50 @@ const TicTacToe = (props) => {
     setIsXTurn(!isXTurn)
   }
 
+  useEffect(() => {
+    if (winner || isDraw) {
+      const timer = setTimeout(() => {
+        onGameOver({
+          winner: winner || 'draw',
+          score: null,
+        })
+      }, 1500)
+      return () => clearTimeout(timer)
+    }
+  }, [winner, isDraw])
+
+
   return (
     <div className={styles.container}>
       <div className={styles.status}>
-        {winner ? `Победитель: ${winner}` : isDraw ? 'Ничья!' : `Ход: ${isXTurn ? 'X' : 'O'}`}
+        {winner || isDraw ? `Игра окончена!` : `Ход: ${isXTurn ? 'X' : 'O'}`}
       </div>
 
       <div className={styles.grid}>
-        {board.map((value, i) => (
-          <button
-            key={i}
-            className={`${styles.cell} ${value ? styles[value.toLowerCase()] : ''}`}
-            onClick={() => handleClick(i)}
-            disabled={!!winner || !!value}
-          >
-            {value}
-          </button>
-        ))}
+        {board.map((value, i) => {
+          const isWinCell = winningLine.includes(i)
+
+          return (
+            <motion.button
+              key={i}
+              className={`${styles.cell} ${value ? styles[value.toLowerCase()] : ''}`}
+              onClick={() => handleClick(i)}
+              disabled={!!winner || !!value}
+
+              animate={isWinCell ? {
+                scale: [1, 1.2, 1],
+                backgroundColor: 'var(--highlight)',
+              } : {}}
+              transition={isWinCell ? {
+                duration: 0.75,
+                repeat: Infinity,
+                repeatType: 'mirror',
+              } : {}}
+            >
+              {value}
+            </motion.button>
+          )
+        })}
       </div>
     </div>
   )

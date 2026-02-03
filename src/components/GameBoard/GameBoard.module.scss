@@ -29,7 +29,7 @@
   transition-duration: var(--transition-duration);
 
   &.blur {
-    filter: blur(8px) grayscale(0.5);
+    filter: blur(5px) grayscale(0.5);
     pointer-events: none;
   }
 }
@@ -39,18 +39,32 @@
   inset: 0;
 
   @include flex-center;
-}
 
-.startButton {
-  padding: 10px;
-  color: var(--text);
-  background-color: var(--highlight);
-  border: none;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-s);
+  &Button{
+    padding: 10px;
+    color: var(--text);
+    background-color: var(--highlight);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-s);
 
-  @include hover {
-    opacity: 0.5;
+    @include hover {
+      opacity: 0.6;
+    }
+  }
+
+  &Result {
+    @include flex-center;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      gap: 12px;
+    }
+
+    @include mobile-s {
+      gap: 8px;
+    }
   }
 }
 

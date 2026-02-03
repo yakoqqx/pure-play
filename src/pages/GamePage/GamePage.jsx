@@ -22,8 +22,11 @@ const GamePage = () => {
     return game.defaultSettings
   })
 
+  const [result, setResult] = useState(null)
+
   const handleSettingsChange = (newSettings) => {
     setCurrentSettings(newSettings)
+    setResult(null)
 
     localStorage.setItem(`${gameId}_settings`, JSON.stringify(newSettings))
   }
@@ -61,6 +64,9 @@ const GamePage = () => {
           <GameBoard
             currentSettings={currentSettings}
             gameId={gameId}
+            result={result}
+            setResult={setResult}
+            key={JSON.stringify(currentSettings)}
           />
         </FadeIn>
       </main>
