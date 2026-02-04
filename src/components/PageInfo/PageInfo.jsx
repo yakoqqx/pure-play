@@ -1,5 +1,6 @@
 import {useLocation} from 'react-router'
 import {PAGES_INFO} from '@/constants/pageInfo'
+import {memo} from 'react'
 import styles from './PageInfo.module.scss'
 
 const PageInfo = (props) => {
@@ -41,4 +42,4 @@ const PageInfo = (props) => {
   )
 }
 
-export default PageInfo
+export default memo(PageInfo)

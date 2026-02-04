@@ -1,4 +1,5 @@
 import {motion} from 'motion/react'
+import {memo} from 'react'
 
 const FadeIn = (props) => {
   const {
@@ -40,4 +41,4 @@ const FadeIn = (props) => {
   )
 }
 
-export default FadeIn
+export default memo(FadeIn)

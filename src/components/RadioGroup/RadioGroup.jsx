@@ -1,3 +1,4 @@
+import {memo} from 'react'
 import styles from './RadioGroup.module.scss'
 
 const RadioGroup = (props) => {
@@ -43,4 +44,4 @@ const RadioGroup = (props) => {
   )
 }
 
-export default RadioGroup
+export default memo(RadioGroup)

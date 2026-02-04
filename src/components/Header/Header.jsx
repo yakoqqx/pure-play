@@ -2,7 +2,7 @@ import Logo from '@/components/Logo'
 import NavList from '@/components/NavList'
 import ThemeButton from '@/components/ThemeButton'
 import BurgerButton from '@/components/BurgerButton'
-import {useCallback, useState} from 'react'
+import {memo, useCallback, useState} from 'react'
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -30,4 +30,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

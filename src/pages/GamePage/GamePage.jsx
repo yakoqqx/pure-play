@@ -4,7 +4,7 @@ import NotFoundPage from '@/pages/NotFoundPage'
 import Header from '@/components/Header'
 import PageInfo from '@/components/PageInfo'
 import GameSettings from '@/components/GameSettings'
-import {useState} from 'react'
+import {useCallback, useState} from 'react'
 import FadeIn from '@/components/shared/FadeIn'
 import GameBoard from '@/components/GameBoard'
 
@@ -24,12 +24,12 @@ const GamePage = () => {
 
   const [result, setResult] = useState(null)
 
-  const handleSettingsChange = (newSettings) => {
+  const handleSettingsChange = useCallback((newSettings) => {
     setCurrentSettings(newSettings)
     setResult(null)
 
     localStorage.setItem(`${gameId}_settings`, JSON.stringify(newSettings))
-  }
+  }, [gameId])
 
   return (
     <>

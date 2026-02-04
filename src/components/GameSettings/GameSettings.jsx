@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react'
 import RadioGroup from '@/components/RadioGroup'
+import {memo} from 'react'
 import styles from './GameSettings.module.scss'
 
 const GameSettings = (props) => {
@@ -54,4 +55,4 @@ const GameSettings = (props) => {
   )
 }
 
-export default GameSettings
+export default memo(GameSettings)
