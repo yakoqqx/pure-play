@@ -1,18 +1,21 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useCallback} from 'react'
 import {WIN_LINES} from '@/components/GameEngines/TicTacToe/constants/winLines'
 import {motion} from 'motion/react'
+import {getBotMove} from '@/components/GameEngines/TicTacToe/botLogic'
 import styles from './TicTacToe.module.scss'
 
 const TicTacToe = (props) => {
-  const {
-    currentSettings,
-    isGameStart,
-    onGameOver,
-  } = props
+  const {currentSettings, isGameStart, onGameOver} = props
+
+  const playerSymbol = currentSettings.side
+  const botSymbol = playerSymbol === 'X' ? 'O' : 'X'
+  const isPve = currentSettings.mode === 'pve'
 
   const [board, setBoard] = useState(Array(9).fill(null))
 
-  const [isXTurn, setIsXTurn] = useState(true)
+  const [currentTurn, setCurrentTurn] = useState('O')
+
+  const isBotTurn = isPve && isGameStart && currentTurn === botSymbol
 
   const checkWinner = (board) => {
     for (let i = 0; i < WIN_LINES.length; i++) {
@@ -29,14 +32,21 @@ const TicTacToe = (props) => {
   const isDraw = !winner && board.every(square => square !== null)
   const winningLine = winData?.line || []
 
+  const makeMove = useCallback((index) => {
+    if (board[index] || winner) return
+
+    setBoard(prev => {
+      const newBoard = [...prev]
+      newBoard[index] = currentTurn
+      return newBoard
+    })
+
+    setCurrentTurn(prev => (prev === 'O' ? 'X' : 'O'))
+  }, [board, winner, currentTurn])
+
   const handleClick = (index) => {
-    if (!isGameStart || board[index] || winner) return
-
-    const newBoard = [...board]
-    newBoard[index] = isXTurn ? 'X' : 'O'
-
-    setBoard(newBoard)
-    setIsXTurn(!isXTurn)
+    if (!isGameStart || isBotTurn) return
+    makeMove(index)
   }
 
   useEffect(() => {
@@ -49,13 +59,27 @@ const TicTacToe = (props) => {
       }, 1500)
       return () => clearTimeout(timer)
     }
-  }, [winner, isDraw])
+  }, [winner, isDraw, onGameOver])
 
+  useEffect(() => {
+    if (isBotTurn && !winner && !isDraw) {
+      const timer = setTimeout(() => {
+        const move = getBotMove(board, currentSettings.difficulty, botSymbol, playerSymbol)
+        if (move !== null) {
+          makeMove(move)
+        }
+      }, 500)
+
+      return () => clearTimeout(timer)
+    }
+  }, [isBotTurn, winner, isDraw, board, makeMove])
 
   return (
     <div className={styles.container}>
       <div className={styles.status}>
-        {winner || isDraw ? `Игра окончена!` : `Ход: ${isXTurn ? 'X' : 'O'}`}
+        {winner || isDraw
+          ? 'Игра окончена!'
+          : `Ход: ${currentTurn === 'O' ? 'Нолики (O)' : 'Крестики (X)'}`}
       </div>
 
       <div className={styles.grid}>
@@ -67,7 +91,7 @@ const TicTacToe = (props) => {
               key={i}
               className={`${styles.cell} ${value ? styles[value.toLowerCase()] : ''}`}
               onClick={() => handleClick(i)}
-              disabled={!!winner || !!value}
+              disabled={!!winner || !!value || (!isGameStart || isBotTurn)}
 
               animate={isWinCell ? {
                 scale: [1, 1.2, 1],

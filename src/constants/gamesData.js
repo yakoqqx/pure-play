@@ -50,6 +50,10 @@ export const GAMES_DATA = [
         showIf: (currentSettings) => currentSettings.mode === 'pve',
         options: [
           {
+            value: 'easy',
+            label: 'Легкая',
+          },
+          {
             value: 'medium',
             label: 'Средняя',
           },
@@ -65,12 +69,12 @@ export const GAMES_DATA = [
         type: 'radio',
         options: [
           {
-            value: 'X',
-            label: 'Крестик',
-          },
-          {
             value: 'O',
             label: 'Нолик',
+          },
+          {
+            value: 'X',
+            label: 'Крестик',
           },
         ],
       },
