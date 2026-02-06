@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {GAME_ENGINES} from '@/components/GameEngines'
+import {GAME_ENGINES} from '@/features/GameProcess/engines'
 import styles from './GameBoard.module.scss'
 
 const GameBoard = (props) => {

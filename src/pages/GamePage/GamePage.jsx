@@ -1,12 +1,12 @@
 import {useParams} from 'react-router'
-import {GAMES_DATA} from '@/constants/gamesData'
+import {GAMES_DATA} from '@/entities/Game/model/gamesData'
 import NotFoundPage from '@/pages/NotFoundPage'
-import Header from '@/components/Header'
-import PageInfo from '@/components/PageInfo'
-import GameSettings from '@/components/GameSettings'
+import Header from '@/widgets/Header'
+import PageInfo from '@/widgets/PageInfo'
+import GameSettings from '@/features/GameSettings'
 import {useCallback, useState} from 'react'
-import FadeIn from '@/components/shared/FadeIn'
-import GameBoard from '@/components/GameBoard'
+import FadeIn from '@/shared/ui/FadeIn'
+import GameBoard from '@/features/GameProcess/ui/GameBoard'
 
 const GamePage = () => {
   const {gameId} = useParams()

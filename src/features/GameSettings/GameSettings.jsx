@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react'
-import RadioGroup from '@/components/RadioGroup'
+import RadioGroup from '@/shared/ui/RadioGroup'
 import {memo} from 'react'
 import styles from './GameSettings.module.scss'
 

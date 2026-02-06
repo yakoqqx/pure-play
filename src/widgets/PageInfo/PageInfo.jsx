@@ -1,5 +1,5 @@
 import {useLocation} from 'react-router'
-import {PAGES_INFO} from '@/constants/pageInfo'
+import {PAGES_INFO} from '@/shared/constants/pageInfo'
 import {memo} from 'react'
 import styles from './PageInfo.module.scss'
 

@@ -1,7 +1,7 @@
-import Logo from '@/components/Logo'
-import NavList from '@/components/NavList'
-import ThemeButton from '@/components/ThemeButton'
-import BurgerButton from '@/components/BurgerButton'
+import Logo from '@/shared/ui/Logo'
+import NavList from '@/widgets/NavList'
+import ThemeButton from '@/features/ThemeButton'
+import BurgerButton from '@/shared/ui/BurgerButton'
 import {memo, useCallback, useState} from 'react'
 import styles from './Header.module.scss'
 

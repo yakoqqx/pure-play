@@ -1,6 +1,6 @@
-import Header from '@/components/Header'
-import PageInfo from '@/components/PageInfo'
-import FadeIn from '@/components/shared/FadeIn'
+import Header from '@/widgets/Header'
+import PageInfo from '@/widgets/PageInfo'
+import FadeIn from '@/shared/ui/FadeIn'
 
 const StatPage = () => {
   return (

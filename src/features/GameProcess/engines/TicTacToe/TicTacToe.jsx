@@ -1,7 +1,7 @@
 import {useEffect, useState, useCallback} from 'react'
-import {WIN_LINES} from '@/components/GameEngines/TicTacToe/constants/winLines'
+import {WIN_LINES} from '@/features/GameProcess/engines/TicTacToe/constants/winLines'
 import {motion} from 'motion/react'
-import {getBotMove} from '@/components/GameEngines/TicTacToe/botLogic'
+import {getBotMove} from '@/features/GameProcess/engines/TicTacToe/botLogic'
 import styles from './TicTacToe.module.scss'
 
 const TicTacToe = (props) => {

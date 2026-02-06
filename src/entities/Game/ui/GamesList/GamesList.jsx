@@ -1,6 +1,6 @@
-import FadeIn from '@/components/shared/FadeIn'
-import GameCard from '@/components/GameCard'
-import {GAMES_DATA} from '@/constants/gamesData'
+import FadeIn from '@/shared/ui/FadeIn'
+import GameCard from '@/entities/Game/ui/GameCard'
+import {GAMES_DATA} from '@/entities/Game/model/gamesData'
 import styles from './GamesList.module.scss'
 
 const GamesList = () => {

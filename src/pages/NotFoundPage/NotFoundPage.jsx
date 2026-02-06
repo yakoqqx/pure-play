@@ -1,6 +1,6 @@
-import PageInfo from '@/components/PageInfo'
-import Header from '@/components/Header'
-import FadeIn from '@/components/shared/FadeIn'
+import PageInfo from '@/widgets/PageInfo'
+import Header from '@/widgets/Header'
+import FadeIn from '@/shared/ui/FadeIn'
 
 const NotFoundPage = () => {
   return (
