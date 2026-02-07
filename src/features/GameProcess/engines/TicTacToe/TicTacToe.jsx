@@ -54,7 +54,7 @@ const TicTacToe = (props) => {
       const timer = setTimeout(() => {
         onGameOver({
           winner: winner || 'draw',
-          score: null,
+          settings: currentSettings,
         })
       }, 1500)
       return () => clearTimeout(timer)

@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {GAME_ENGINES} from '@/features/GameProcess/engines'
 import styles from './GameBoard.module.scss'
+import {saveGameResult} from '@/entities/Stat/model/statStore'
 
 const GameBoard = (props) => {
   const {
@@ -19,6 +20,8 @@ const GameBoard = (props) => {
   const handleGameOver = (winner) => {
     setIsGameStart(false)
     setResult(winner)
+
+    saveGameResult(gameId, winner)
   }
 
   const handleRestart = () => {

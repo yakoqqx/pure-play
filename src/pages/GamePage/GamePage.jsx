@@ -7,6 +7,7 @@ import GameSettings from '@/features/GameSettings'
 import {useCallback, useState} from 'react'
 import FadeIn from '@/shared/ui/FadeIn'
 import GameBoard from '@/features/GameProcess/ui/GameBoard'
+import {loadGameSettings, saveGameSettings} from '@/entities/Game/model/gameSettings'
 
 const GamePage = () => {
   const {gameId} = useParams()
@@ -15,12 +16,9 @@ const GamePage = () => {
     return <NotFoundPage />
   }
 
-  const [currentSettings, setCurrentSettings] = useState(() => {
-    const saved = localStorage.getItem(`${gameId}_settings`)
-    if (saved) return JSON.parse(saved)
-
-    return game.defaultSettings
-  })
+  const [currentSettings, setCurrentSettings] = useState(() =>
+    loadGameSettings(gameId, game?.defaultSettings),
+  )
 
   const [result, setResult] = useState(null)
 
@@ -28,7 +26,7 @@ const GamePage = () => {
     setCurrentSettings(newSettings)
     setResult(null)
 
-    localStorage.setItem(`${gameId}_settings`, JSON.stringify(newSettings))
+    saveGameSettings(gameId, newSettings)
   }, [gameId])
 
   return (
