@@ -25,21 +25,8 @@
   }
 }
 
-.link {
-  padding: 6px;
-  text-decoration: none;
-  color: var(--text);
-  border-radius: var(--border-radius);
-
-  &.active {
-    color: var(--text-accent);
-  }
-
-  @include hover {
-    color: var(--text);
-    background-color: var(--primary);
-    transition-duration: var(--transition-duration);
-  }
+.wide {
+  width: 100%;
 }
 
 .titleAccent {

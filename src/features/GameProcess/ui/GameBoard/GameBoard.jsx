@@ -1,7 +1,8 @@
-import {useState} from 'react'
+import {useCallback, useState} from 'react'
 import {GAME_ENGINES} from '@/features/GameProcess/engines'
 import styles from './GameBoard.module.scss'
 import {saveGameResult} from '@/entities/Stat/model/statStore'
+import Button from '@/shared/ui/Button'
 
 const GameBoard = (props) => {
   const {
@@ -17,12 +18,12 @@ const GameBoard = (props) => {
 
   const [isGameStart, setIsGameStart] = useState(false)
 
-  const handleGameOver = (winner) => {
+  const handleGameOver = useCallback((winner) => {
     setIsGameStart(false)
     setResult(winner)
 
     saveGameResult(gameId, winner)
-  }
+  }, [gameId, setResult])
 
   const handleRestart = () => {
     setResult(null)
@@ -53,21 +54,21 @@ const GameBoard = (props) => {
         {!isGameStart && Engine && (
           <div className={styles.overlay}>
             {!result ? (
-              <button
-                className={`button ${styles.overlayButton}`}
+              <Button
+                variant={'primary'}
                 onClick={handleRestart}
               >
                 Начать игру
-              </button>
+              </Button>
             ) : (
               <div className={styles.overlayResult}>
                 <h5 className={'h4'}>{result.winner === 'draw' ? 'Ничья!' : `Победитель: ${result.winner}`}</h5>
-                <button
-                  className={`button ${styles.overlayButton}`}
+                <Button
+                  variant={'primary'}
                   onClick={handleRestart}
                 >
                   Реванш
-                </button>
+                </Button>
               </div>
             )}
           </div>

@@ -2,6 +2,7 @@ import {routes} from '@/app/routing/routesConfig'
 import {NavLink} from 'react-router'
 import {memo} from 'react'
 import styles from './NavList.module.scss'
+import Button from '@/shared/ui/Button'
 
 const NavList = (props) => {
   const {
@@ -25,13 +26,14 @@ const NavList = (props) => {
             .filter(route => !route.hidden)
             .map(({path, name}) => (
               <li key={path}>
-                <NavLink
-                  className={`link`}
+                <Button
+                  as={NavLink}
+                  variant={'nav'}
                   to={path}
                   onClick={onClose}
-                >
+                  >
                   {name}
-                </NavLink>
+                </Button>
               </li>
             ))}
         </ul>

@@ -1,5 +1,6 @@
 import {Link} from 'react-router'
 import styles from './GameCard.module.scss'
+import Button from '@/shared/ui/Button'
 
 const GameCard = ({game}) => {
   const {
@@ -22,12 +23,14 @@ const GameCard = ({game}) => {
       >
         {title}
       </h3>
-      <Link
+      <Button
+        as={Link}
         to={path}
-        className={`${styles.link} link`}
+        variant={'primary'}
+        className={'wide'}
       >
         Играть
-      </Link>
+      </Button>
     </div>
   )
 }

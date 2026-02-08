@@ -29,7 +29,7 @@ const FadeIn = (props) => {
         opacity: 1,
         y: 0,
       }}
-      viewport={{once: true, margin: '-50px'}}
+      viewport={{once: true, margin: '-25px'}}
       transition={{
         duration: 0.6,
         delay: delay,

@@ -37,8 +37,8 @@
   }
 
   @include mobile {
-    max-width: 300px;
     gap: 8px;
+    max-width: 300px;
   }
 
   @include mobile-s {
@@ -52,7 +52,7 @@
   color: var(--text);
   background-color: var(--bg-card);
   border: var(--border);
-  border-color: var(--border-muted);
+  border-color: var(--border-color);
   border-radius: var(--border-radius-m);
   box-shadow: var(--shadow-s);
   transition-duration: var(--transition-duration);
@@ -61,7 +61,7 @@
 
   @include hover {
     background-color: var(--bg-light);
-    border-color: var(--primary);
+    border-color: var(--highlight);
   }
 
   &.x {
@@ -77,7 +77,7 @@
 
     @include hover {
       background-color: var(--bg-card);
-      border-color: var(--border-muted);
+      border-color: var(--border-color);
     }
   }
 
@@ -94,7 +94,7 @@
   color: var(--text-secondary);
   background-color: var(--bg-card);
   border: var(--border);
-  border-color: var(--border-muted);
+  border-color: var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-s);
 

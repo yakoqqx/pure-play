@@ -44,7 +44,7 @@
     cursor: default;
 
     .radioInput {
-      background-color: var(--secondary);
+      background-color: var(--text-accent);
     }
   }
 }
@@ -52,7 +52,7 @@
 .radioInput {
   display: inline-block;
   margin: 0;
-  background-color: var(--border-muted);
+  background-color: var(--primary-bg);
   border-radius: var(--border-radius-xs);
   box-shadow: var(--shadow-s);
 

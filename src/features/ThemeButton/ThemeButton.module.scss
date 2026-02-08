@@ -1,34 +1,30 @@
 @use '@/app/styles/helpers' as *;
 
 .themeButton {
-  @include square(36px);
+  @include square(var(--input-height));
+  @include flex-center;
 
-  padding: 2px;
+  position: relative;
+  overflow: hidden;
   background: transparent;
   border: none;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-image: var(--theme-icon);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  &.animateIcon::before {
-    animation: rotateForward calc(var(--transition-duration) * 2.5) ease-in-out;
-  }
+  border-radius: var(--border-radius-m);
+  transition: var(--transition-main);
 
   @include hover {
-    opacity: 0.5;
-    transition-duration: var(--transition-duration);
+    background-color: var(--primary-bg);
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }
 
-@keyframes rotateForward {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.iconWrapper {
+  @include square(calc(var(--input-height) / 2));
+
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }

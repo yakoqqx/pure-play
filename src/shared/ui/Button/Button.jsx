@@ -1,10 +1,34 @@
+import {NavLink} from 'react-router'
 import styles from './Button.module.scss'
 
-const Button = () => {
+const Button = (props) => {
+  const {
+    as: Component = 'button',
+    variant = 'primary',
+    className = '',
+    children,
+    ...rest
+  } = props
+
+  const combinedClassName = `${styles.button} ${styles[variant]} ${className}`
+
+  if (Component === NavLink) {
+    return (
+      <NavLink
+        {...rest}
+        className={({isActive}) =>
+          `${combinedClassName} ${isActive ? styles.active : ''}`
+        }
+      >
+        {children}
+      </NavLink>
+    )
+  }
+
   return (
-    <button className={styles.button}>
-      Click me!
-    </button>
+    <Component {...rest} className={combinedClassName}>
+      {children}
+    </Component>
   )
 }
 

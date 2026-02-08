@@ -95,7 +95,7 @@ const TicTacToe = (props) => {
 
               animate={isWinCell ? {
                 scale: [1, 1.2, 1],
-                backgroundColor: 'var(--highlight)',
+                backgroundColor: 'var(--border-color)',
               } : {}}
               transition={isWinCell ? {
                 duration: 0.75,

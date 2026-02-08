@@ -8,17 +8,19 @@
   --bg-game-board: oklch(27% 0.01 180deg);
   --text: oklch(98% 0.005 160deg);
   --text-muted: oklch(75% 0.01 160deg);
-  --text-accent: oklch(85% 0.14 160deg);
-  --border-color: oklch(45% 0.02 160deg);
-  --border-muted: oklch(33% 0.02 160deg);
-  --primary: oklch(72% 0.15 160deg);
-  --primary-hover: oklch(78% 0.18 160deg);
-  --secondary: oklch(65% 0.04 160deg);
+  --text-accent: oklch(88% 0.18 160deg);
+  --border-color: oklch(42% 0.12 160deg);
+  --border-muted: oklch(30% 0.12 160deg);
+  --primary: oklch(72% 0.16 155deg);
+  --primary-hover: oklch(76% 0.19 155deg);
+  --primary-active: oklch(68% 0.18 155deg);
+  --primary-bg: oklch(72% 0.16 155deg / 0.15);
+  --secondary: oklch(65% 0.14 160deg);
   --danger: oklch(65% 0.15 25deg);
   --warning: oklch(75% 0.12 70deg);
   --success: var(--primary);
   --info: oklch(70% 0.1 240deg);
-  --highlight: oklch(50% 0.08 160deg);
+  --highlight: oklch(40% 0.12 160deg);
   --grey: oklch(33.02% 0.01 255deg);
 
   --theme-icon: url("/moon.svg");
@@ -27,21 +29,23 @@
     --bg-dark: oklch(93% 0.01 160deg);
     --bg: oklch(97% 0.005 160deg);
     --bg-light: oklch(100% 0 0deg);
-    --bg-card: oklch(94% 0.005 160deg);
+    --bg-card: oklch(96% 0.005 160deg);
     --bg-game-board: oklch(93% 0.01 180deg);
     --text: oklch(20% 0.02 160deg);
     --text-muted: oklch(45% 0.02 160deg);
-    --text-accent: oklch(60% 0.14 160deg);
-    --border-color: oklch(75% 0.03 160deg);
-    --border-muted: oklch(72% 0.02 160deg);
-    --primary: oklch(65% 0.16 160deg);
-    --primary-hover: oklch(48% 0.15 160deg);
-    --secondary: oklch(50% 0.05 160deg);
+    --text-accent: oklch(55% 0.18 155deg);
+    --border-color: oklch(80% 0.08 155deg);
+    --border-muted: oklch(88% 0.05 155deg);
+    --primary: oklch(65% 0.18 155deg);
+    --primary-hover: oklch(58% 0.19 155deg);
+    --primary-active: oklch(50% 0.2 155deg);
+    --primary-bg: oklch(65% 0.18 155deg / 0.15);
+    --secondary: oklch(60% 0.05 155deg);
     --danger: oklch(55% 0.18 25deg);
     --warning: oklch(65% 0.15 70deg);
     --success: var(--primary);
     --info: oklch(55% 0.14 240deg);
-    --highlight: oklch(90% 0.08 160deg);
+    --highlight: oklch(94% 0.08 155deg);
 
     --theme-icon: url("/sun.svg");
   }

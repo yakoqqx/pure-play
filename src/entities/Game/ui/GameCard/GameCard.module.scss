@@ -31,17 +31,4 @@
     text-align: center;
     text-overflow: ellipsis;
   }
-
-  .link {
-    width: 100%;
-    place-content: center;
-    font-weight: 500;
-    background-color: var(--primary);
-
-    @include hover {
-      color: var(--text);
-      opacity: 0.65;
-      transition-duration: var(--transition-duration);
-    }
-  }
 }
